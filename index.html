@@ -118,6 +118,41 @@ Dispositivos
 
 
 </div>
+<script>
 
+function actualizarReloj(){
+
+let ahora = new Date();
+
+let hora = ahora.getHours().toString().padStart(2,'0');
+let minutos = ahora.getMinutes().toString().padStart(2,'0');
+
+document.querySelector(".time").innerHTML =
+hora + ":" + minutos;
+
+}
+
+setInterval(actualizarReloj,1000);
+
+actualizarReloj();
+
+
+
+let botones = document.querySelectorAll(".button");
+
+botones.forEach(boton=>{
+
+boton.onclick=function(){
+
+boton.style.background =
+boton.style.background=="#0071e3"
+? "#222"
+: "#0071e3";
+
+}
+
+});
+
+</script>
 </body>
 </html>
