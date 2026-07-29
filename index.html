@@ -3,50 +3,51 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Panel</title>
+<title>Control</title>
 
 <style>
 
-body {
-  margin:0;
-  background:#111;
-  color:white;
-  font-family:Arial;
-  text-align:center;
+body{
+margin:0;
+background:#111;
+color:white;
+font-family:Arial;
+text-align:center;
 }
 
-.hora {
-  font-size:60px;
-  font-weight:bold;
-  margin-top:25px;
+.hora{
+font-size:60px;
+font-weight:bold;
+margin-top:25px;
 }
 
-.fecha {
-  font-size:24px;
-  margin-bottom:30px;
+.fecha{
+font-size:24px;
+margin-bottom:30px;
 }
 
-.grid {
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
-  padding:20px;
+.grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+padding:20px;
 }
 
-button {
-  height:100px;
-  border-radius:15px;
-  border:none;
-  background:#222;
-  color:white;
-  font-size:22px;
+button{
+height:100px;
+border:none;
+border-radius:15px;
+background:#222;
+color:white;
+font-size:22px;
 }
 
-.encendido {
-  background:#0066ff;
+.encendido{
+background:#0066ff;
 }
 
 </style>
+
 </head>
 
 <body>
@@ -57,19 +58,19 @@ button {
 
 <div class="grid">
 
-<button onclick="accion(this,'Smart Life - Pecera')">🐟 Pecera</button>
+<button onclick="control(this,'Pecera')">🐟 Pecera</button>
 
-<button onclick="accion(this,'Smart Life - Velador')">🛋️ Velador</button>
+<button onclick="control(this,'Velador')">🛋️ Velador</button>
 
-<button onclick="accion(this,'CozyLife - Cama')">🛏️ Cama</button>
+<button onclick="control(this,'Cama')">🛏️ Cama</button>
 
-<button onclick="accion(this,'Smart Life - Luz')">💡 Luz</button>
+<button onclick="control(this,'Luz')">💡 Luz</button>
 
-<button onclick="accion(this,'BroadLink - LED')">🌈 LED</button>
+<button onclick="control(this,'LED')">🌈 LED</button>
 
-<button onclick="accion(this,'BroadLink - Radio')">📻 Radio</button>
+<button onclick="control(this,'Radio')">📻 Radio</button>
 
-<button onclick="accion(this,'BroadLink - TV')">📺 Tele</button>
+<button onclick="control(this,'TV')">📺 Tele</button>
 
 <button onclick="spotify()">🎵 Música</button>
 
@@ -78,31 +79,31 @@ button {
 
 <script>
 
-function actualizar(){
+function reloj(){
 
-let ahora=new Date();
+let fecha=new Date();
 
 document.getElementById("hora").innerHTML =
-ahora.toLocaleTimeString([],{
-hour:'2-digit',
-minute:'2-digit'
+fecha.toLocaleTimeString([],{
+hour:"2-digit",
+minute:"2-digit"
 });
 
 document.getElementById("fecha").innerHTML =
-ahora.toLocaleDateString();
+fecha.toLocaleDateString();
 
 }
 
-setInterval(actualizar,1000);
-actualizar();
+setInterval(reloj,1000);
+reloj();
 
 
 
-function accion(boton,dispositivo){
+function control(boton,dispositivo){
 
 boton.classList.toggle("encendido");
 
-console.log("Control:",dispositivo);
+console.log("Acción:",dispositivo);
 
 }
 
@@ -110,12 +111,13 @@ console.log("Control:",dispositivo);
 
 function spotify(){
 
-window.open("https://open.spotify.com");
+window.open(
+"https://open.spotify.com"
+);
 
 }
 
 </script>
-
 
 </body>
 </html>
