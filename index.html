@@ -8,56 +8,65 @@
 
 <style>
 
-body {
+body{
     margin:0;
     background:#000;
     color:white;
     font-family:Arial, sans-serif;
 }
 
-.container {
+.container{
     padding:30px;
 }
 
-.top {
+.top{
     display:flex;
     justify-content:space-between;
     align-items:center;
 }
 
-.time {
-    font-size:60px;
+.time{
+    font-size:70px;
     font-weight:bold;
 }
 
-.date {
+.date{
     color:#aaa;
     font-size:22px;
 }
 
-.card {
+.card{
     background:#151515;
-    border-radius:25px;
+    border-radius:30px;
     padding:25px;
-    margin-top:25px;
+    margin-top:30px;
 }
 
-.grid {
+.grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:20px;
 }
 
-.button {
+.button{
     background:#222;
     border-radius:25px;
-    padding:30px;
+    padding:35px;
     text-align:center;
-    font-size:22px;
+    font-size:24px;
+    transition:0.3s;
 }
 
-.icon {
-    font-size:45px;
+.button:active{
+    transform:scale(0.95);
+}
+
+.icon{
+    font-size:50px;
+}
+
+.active{
+    background:#0071e3;
 }
 
 </style>
@@ -71,8 +80,8 @@ body {
 <div class="top">
 
 <div>
-<div class="time">12:00</div>
-<div class="date">Miércoles 29 de julio</div>
+<div class="time">00:00</div>
+<div class="date">Mi casa inteligente</div>
 </div>
 
 <div class="icon">
@@ -84,7 +93,7 @@ body {
 
 <div class="card">
 
-<h2>Mi Casa</h2>
+<h2>Control del hogar</h2>
 
 <div class="grid">
 
@@ -93,66 +102,59 @@ body {
 Luces
 </div>
 
-
 <div class="button">
 <div class="icon">🎵</div>
 Música
 </div>
-
 
 <div class="button">
 <div class="icon">🌡️</div>
 Clima
 </div>
 
-
 <div class="button">
 <div class="icon">⚙️</div>
 Dispositivos
 </div>
 
-
 </div>
 
 </div>
 
-
 </div>
+
+
 <script>
 
-function actualizarReloj(){
+function reloj(){
 
-let ahora = new Date();
+let fecha = new Date();
 
-let hora = ahora.getHours().toString().padStart(2,'0');
-let minutos = ahora.getMinutes().toString().padStart(2,'0');
+let h = fecha.getHours().toString().padStart(2,"0");
+let m = fecha.getMinutes().toString().padStart(2,"0");
 
-document.querySelector(".time").innerHTML =
-hora + ":" + minutos;
+document.querySelector(".time").innerHTML = h + ":" + m;
 
 }
 
-setInterval(actualizarReloj,1000);
-
-actualizarReloj();
-
+setInterval(reloj,1000);
+reloj();
 
 
-let botones = document.querySelectorAll(".button");
+let botones=document.querySelectorAll(".button");
 
 botones.forEach(boton=>{
 
 boton.onclick=function(){
 
-boton.style.background =
-boton.style.background=="#0071e3"
-? "#222"
-: "#0071e3";
+boton.classList.toggle("active");
 
 }
 
 });
 
 </script>
+
+
 </body>
 </html>
