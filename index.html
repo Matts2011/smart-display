@@ -3,55 +3,123 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mi Página</title>
+
+<title>Tech Store</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #000;
-    color: white;
-    text-align: center;
+*{
+    box-sizing:border-box;
 }
 
-header {
-    padding: 30px;
-    font-size: 30px;
-    font-weight: bold;
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f5f5f7;
+    color:#111;
 }
 
-.hero {
-    padding: 80px 20px;
+header{
+    background:#000;
+    color:white;
+    padding:20px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-h1 {
-    font-size: 60px;
-    margin-bottom: 20px;
+.logo{
+    font-size:28px;
+    font-weight:bold;
 }
 
-p {
-    font-size: 22px;
-    color: #aaa;
+nav a{
+    color:white;
+    margin:0 15px;
+    text-decoration:none;
 }
 
-button {
-    margin-top: 30px;
-    padding: 15px 35px;
-    border-radius: 30px;
-    border: none;
-    background: white;
-    color: black;
-    font-size: 18px;
-    cursor: pointer;
+.hero{
+    background:linear-gradient(120deg,#000,#333);
+    color:white;
+    text-align:center;
+    padding:90px 20px;
 }
 
-.card {
-    margin: 40px auto;
-    max-width: 700px;
-    padding: 30px;
-    background: #111;
-    border-radius: 25px;
+.hero h1{
+    font-size:60px;
+    margin:10px;
 }
+
+.hero p{
+    font-size:22px;
+    color:#ccc;
+}
+
+.button{
+    display:inline-block;
+    margin-top:30px;
+    background:white;
+    color:black;
+    padding:15px 35px;
+    border-radius:30px;
+    text-decoration:none;
+}
+
+.products{
+    padding:50px;
+    text-align:center;
+}
+
+.products h2{
+    font-size:40px;
+}
+
+.grid{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:25px;
+}
+
+.card{
+    background:white;
+    width:280px;
+    padding:25px;
+    border-radius:25px;
+    box-shadow:0 10px 25px #0002;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card img{
+    width:150px;
+}
+
+.price{
+    font-size:25px;
+    font-weight:bold;
+}
+
+.buy{
+    background:#0071e3;
+    color:white;
+    padding:12px 25px;
+    border-radius:25px;
+    text-decoration:none;
+    display:inline-block;
+    margin-top:15px;
+}
+
+footer{
+    background:#000;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
 </style>
 
 </head>
@@ -59,31 +127,71 @@ button {
 <body>
 
 <header>
-Mi Proyecto
+<div class="logo">Tech Store</div>
+
+<nav>
+<a href="#">Inicio</a>
+<a href="#">Productos</a>
+<a href="#">Ofertas</a>
+</nav>
 </header>
+
 
 <section class="hero">
 
-<h1>Innovación y Diseño</h1>
+<h1>El futuro de la tecnología</h1>
 
 <p>
-Una página creada con un estilo moderno,
-simple y elegante.
+Productos innovadores con diseño premium.
 </p>
 
-<button>
-Comenzar
-</button>
+<a class="button" href="#">
+Explorar
+</a>
 
 </section>
 
+
+<section class="products">
+
+<h2>Productos destacados</h2>
+
+<div class="grid">
+
+
 <div class="card">
-<h2>Sobre nosotros</h2>
-<p>
-Aquí puedes poner información,
-productos o tus ideas.
-</p>
+<h3>Smartphone Pro</h3>
+<p>Pantalla avanzada y máximo rendimiento.</p>
+<div class="price">$999</div>
+<a class="buy" href="#">Comprar</a>
 </div>
+
+
+<div class="card">
+<h3>Laptop Ultra</h3>
+<p>Potencia para trabajar y crear.</p>
+<div class="price">$1299</div>
+<a class="buy" href="#">Comprar</a>
+</div>
+
+
+<div class="card">
+<h3>Smart Watch</h3>
+<p>Tecnología inteligente en tu muñeca.</p>
+<div class="price">$299</div>
+<a class="buy" href="#">Comprar</a>
+</div>
+
+
+</div>
+
+</section>
+
+
+<footer>
+© 2026 Tech Store
+</footer>
+
 
 </body>
 </html>
