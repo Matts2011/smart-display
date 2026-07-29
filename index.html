@@ -8,47 +8,45 @@
 <style>
 
 body {
-  margin: 0;
-  background: #111;
-  color: white;
-  font-family: Arial;
-  text-align: center;
+  margin:0;
+  background:#111;
+  color:white;
+  font-family:Arial;
+  text-align:center;
 }
 
 .hora {
-  font-size: 60px;
-  font-weight: bold;
-  margin-top: 25px;
+  font-size:60px;
+  font-weight:bold;
+  margin-top:25px;
 }
 
 .fecha {
-  font-size: 25px;
-  margin-bottom: 30px;
+  font-size:24px;
+  margin-bottom:30px;
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  padding: 20px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+  padding:20px;
 }
 
 button {
-  height: 100px;
-  border-radius: 15px;
-  border: none;
-  background: #222;
-  color: white;
-  font-size: 22px;
-  transition: 0.3s;
+  height:100px;
+  border-radius:15px;
+  border:none;
+  background:#222;
+  color:white;
+  font-size:22px;
 }
 
 .encendido {
-  background: blue;
+  background:#0066ff;
 }
 
 </style>
-
 </head>
 
 <body>
@@ -59,29 +57,33 @@ button {
 
 <div class="grid">
 
-<button onclick="cambiar(this)">🐟 Pecera</button>
-<button onclick="cambiar(this)">🛋️ Velador</button>
+<button onclick="accion(this,'Smart Life - Pecera')">🐟 Pecera</button>
 
-<button onclick="cambiar(this)">🛏️ Cama</button>
-<button onclick="cambiar(this)">💡 Luz</button>
+<button onclick="accion(this,'Smart Life - Velador')">🛋️ Velador</button>
 
-<button onclick="cambiar(this)">🌈 LED</button>
-<button onclick="cambiar(this)">📻 Radio</button>
+<button onclick="accion(this,'CozyLife - Cama')">🛏️ Cama</button>
 
-<button onclick="cambiar(this)">📺 Tele</button>
-<button onclick="cambiar(this)">🎵 Música</button>
+<button onclick="accion(this,'Smart Life - Luz')">💡 Luz</button>
+
+<button onclick="accion(this,'BroadLink - LED')">🌈 LED</button>
+
+<button onclick="accion(this,'BroadLink - Radio')">📻 Radio</button>
+
+<button onclick="accion(this,'BroadLink - TV')">📺 Tele</button>
+
+<button onclick="spotify()">🎵 Música</button>
 
 </div>
 
 
 <script>
 
-function actualizarHora(){
+function actualizar(){
 
-let ahora = new Date();
+let ahora=new Date();
 
 document.getElementById("hora").innerHTML =
-ahora.toLocaleTimeString([], {
+ahora.toLocaleTimeString([],{
 hour:'2-digit',
 minute:'2-digit'
 });
@@ -91,13 +93,24 @@ ahora.toLocaleDateString();
 
 }
 
-setInterval(actualizarHora,1000);
-actualizarHora();
+setInterval(actualizar,1000);
+actualizar();
 
 
-function cambiar(boton){
+
+function accion(boton,dispositivo){
 
 boton.classList.toggle("encendido");
+
+console.log("Control:",dispositivo);
+
+}
+
+
+
+function spotify(){
+
+window.open("https://open.spotify.com");
 
 }
 
