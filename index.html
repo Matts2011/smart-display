@@ -4,120 +4,60 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Tech Store</title>
+<title>iPad Home</title>
 
 <style>
-*{
-    box-sizing:border-box;
-}
 
-body{
+body {
     margin:0;
-    font-family:Arial, Helvetica, sans-serif;
-    background:#f5f5f7;
-    color:#111;
-}
-
-header{
     background:#000;
     color:white;
-    padding:20px 50px;
+    font-family:Arial, sans-serif;
+}
+
+.container {
+    padding:30px;
+}
+
+.top {
     display:flex;
     justify-content:space-between;
     align-items:center;
 }
 
-.logo{
-    font-size:28px;
-    font-weight:bold;
-}
-
-nav a{
-    color:white;
-    margin:0 15px;
-    text-decoration:none;
-}
-
-.hero{
-    background:linear-gradient(120deg,#000,#333);
-    color:white;
-    text-align:center;
-    padding:90px 20px;
-}
-
-.hero h1{
+.time {
     font-size:60px;
-    margin:10px;
-}
-
-.hero p{
-    font-size:22px;
-    color:#ccc;
-}
-
-.button{
-    display:inline-block;
-    margin-top:30px;
-    background:white;
-    color:black;
-    padding:15px 35px;
-    border-radius:30px;
-    text-decoration:none;
-}
-
-.products{
-    padding:50px;
-    text-align:center;
-}
-
-.products h2{
-    font-size:40px;
-}
-
-.grid{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:25px;
-}
-
-.card{
-    background:white;
-    width:280px;
-    padding:25px;
-    border-radius:25px;
-    box-shadow:0 10px 25px #0002;
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-10px);
-}
-
-.card img{
-    width:150px;
-}
-
-.price{
-    font-size:25px;
     font-weight:bold;
 }
 
-.buy{
-    background:#0071e3;
-    color:white;
-    padding:12px 25px;
-    border-radius:25px;
-    text-decoration:none;
-    display:inline-block;
-    margin-top:15px;
+.date {
+    color:#aaa;
+    font-size:22px;
 }
 
-footer{
-    background:#000;
-    color:white;
+.card {
+    background:#151515;
+    border-radius:25px;
+    padding:25px;
+    margin-top:25px;
+}
+
+.grid {
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.button {
+    background:#222;
+    border-radius:25px;
+    padding:30px;
     text-align:center;
-    padding:20px;
+    font-size:22px;
+}
+
+.icon {
+    font-size:45px;
 }
 
 </style>
@@ -126,72 +66,58 @@ footer{
 
 <body>
 
-<header>
-<div class="logo">Tech Store</div>
+<div class="container">
 
-<nav>
-<a href="#">Inicio</a>
-<a href="#">Productos</a>
-<a href="#">Ofertas</a>
-</nav>
-</header>
+<div class="top">
 
+<div>
+<div class="time">12:00</div>
+<div class="date">Miércoles 29 de julio</div>
+</div>
 
-<section class="hero">
+<div class="icon">
+🏠
+</div>
 
-<h1>El futuro de la tecnología</h1>
-
-<p>
-Productos innovadores con diseño premium.
-</p>
-
-<a class="button" href="#">
-Explorar
-</a>
-
-</section>
+</div>
 
 
-<section class="products">
+<div class="card">
 
-<h2>Productos destacados</h2>
+<h2>Mi Casa</h2>
 
 <div class="grid">
 
-
-<div class="card">
-<h3>Smartphone Pro</h3>
-<p>Pantalla avanzada y máximo rendimiento.</p>
-<div class="price">$999</div>
-<a class="buy" href="#">Comprar</a>
+<div class="button">
+<div class="icon">💡</div>
+Luces
 </div>
 
 
-<div class="card">
-<h3>Laptop Ultra</h3>
-<p>Potencia para trabajar y crear.</p>
-<div class="price">$1299</div>
-<a class="buy" href="#">Comprar</a>
+<div class="button">
+<div class="icon">🎵</div>
+Música
 </div>
 
 
-<div class="card">
-<h3>Smart Watch</h3>
-<p>Tecnología inteligente en tu muñeca.</p>
-<div class="price">$299</div>
-<a class="buy" href="#">Comprar</a>
+<div class="button">
+<div class="icon">🌡️</div>
+Clima
+</div>
+
+
+<div class="button">
+<div class="icon">⚙️</div>
+Dispositivos
 </div>
 
 
 </div>
 
-</section>
+</div>
 
 
-<footer>
-© 2026 Tech Store
-</footer>
-
+</div>
 
 </body>
 </html>
