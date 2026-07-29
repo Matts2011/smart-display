@@ -2,9 +2,11 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Smart Home</title>
+
+<title>Panel</title>
 
 <style>
+
 body {
   margin: 0;
   background: #111;
@@ -13,13 +15,15 @@ body {
   text-align: center;
 }
 
-h1 {
-  margin-top: 20px;
+.hora {
+  font-size: 60px;
+  font-weight: bold;
+  margin-top: 25px;
 }
 
-.info {
-  font-size: 22px;
-  margin: 15px;
+.fecha {
+  font-size: 25px;
+  margin-bottom: 30px;
 }
 
 .grid {
@@ -30,51 +34,75 @@ h1 {
 }
 
 button {
-  height: 90px;
-  border-radius: 20px;
+  height: 100px;
+  border-radius: 15px;
   border: none;
   background: #222;
   color: white;
-  font-size: 20px;
+  font-size: 22px;
+  transition: 0.3s;
 }
 
-button:active {
-  background: #444;
+.encendido {
+  background: blue;
 }
+
 </style>
+
 </head>
 
 <body>
 
-<h1>🏠 Smart Home</h1>
+<div class="hora" id="hora"></div>
+<div class="fecha" id="fecha"></div>
 
-<div class="info" id="hora"></div>
-<div class="info">☀️ Clima: Cargando...</div>
 
 <div class="grid">
 
-<button>🐟 Pecera</button>
-<button>🛋️ Velador</button>
-<button>🛏️ Cama</button>
-<button>💡 Luz</button>
-<button>🌈 LED</button>
-<button>📻 Radio</button>
-<button>📺 Tele</button>
-<button>🎵 Música</button>
+<button onclick="cambiar(this)">🐟 Pecera</button>
+<button onclick="cambiar(this)">🛋️ Velador</button>
+
+<button onclick="cambiar(this)">🛏️ Cama</button>
+<button onclick="cambiar(this)">💡 Luz</button>
+
+<button onclick="cambiar(this)">🌈 LED</button>
+<button onclick="cambiar(this)">📻 Radio</button>
+
+<button onclick="cambiar(this)">📺 Tele</button>
+<button onclick="cambiar(this)">🎵 Música</button>
 
 </div>
 
+
 <script>
+
 function actualizarHora(){
- let ahora = new Date();
- document.getElementById("hora").innerHTML =
- ahora.toLocaleDateString() + "<br>" +
- ahora.toLocaleTimeString();
+
+let ahora = new Date();
+
+document.getElementById("hora").innerHTML =
+ahora.toLocaleTimeString([], {
+hour:'2-digit',
+minute:'2-digit'
+});
+
+document.getElementById("fecha").innerHTML =
+ahora.toLocaleDateString();
+
 }
 
 setInterval(actualizarHora,1000);
 actualizarHora();
+
+
+function cambiar(boton){
+
+boton.classList.toggle("encendido");
+
+}
+
 </script>
+
 
 </body>
 </html>
