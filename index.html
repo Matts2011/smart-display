@@ -1,307 +1,80 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>iPad Home</title>
+<title>Smart Home</title>
 
 <style>
-
-*{
-box-sizing:border-box;
+body {
+  margin: 0;
+  background: #111;
+  color: white;
+  font-family: Arial;
+  text-align: center;
 }
 
-body{
-margin:0;
-background:linear-gradient(135deg,#050505,#202124);
-color:white;
-font-family:Arial, sans-serif;
-min-height:100vh;
+h1 {
+  margin-top: 20px;
 }
 
-.container{
-padding:35px;
+.info {
+  font-size: 22px;
+  margin: 15px;
 }
 
-.header{
-display:flex;
-justify-content:space-between;
-align-items:center;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  padding: 20px;
 }
 
-.time{
-font-size:75px;
-font-weight:bold;
+button {
+  height: 90px;
+  border-radius: 20px;
+  border: none;
+  background: #222;
+  color: white;
+  font-size: 20px;
 }
 
-.subtitle{
-color:#aaa;
-font-size:22px;
+button:active {
+  background: #444;
 }
-
-.home{
-font-size:55px;
-}
-
-
-.card{
-background:rgba(255,255,255,0.08);
-border-radius:30px;
-padding:30px;
-margin-top:30px;
-backdrop-filter:blur(10px);
-}
-
-
-.grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:25px;
-}
-
-
-.button{
-
-background:#151515;
-border-radius:25px;
-padding:35px;
-text-align:center;
-font-size:25px;
-transition:.3s;
-
-}
-
-
-.button:active{
-
-transform:scale(.95);
-
-}
-
-
-.button.active{
-
-background:#0071e3;
-
-}
-
-
-.icon{
-
-font-size:55px;
-
-}
-
-
-.status{
-
-font-size:16px;
-color:#aaa;
-margin-top:10px;
-
-}
-
 </style>
-
 </head>
-
 
 <body>
 
+<h1>🏠 Smart Home</h1>
 
-<div class="container">
-
-
-<div class="header">
-
-<div>
-
-<div class="time">00:00</div>
-
-<div class="subtitle">
-Casa inteligente
-</div>
-
-</div>
-
-
-<div class="home">
-🏠
-</div>
-
-
-</div>
-
-
-
-<div class="card">
-
-<h2>Habitaciones</h2>
-
+<div class="info" id="hora"></div>
+<div class="info">☀️ Clima: Cargando...</div>
 
 <div class="grid">
 
-
-<div class="button">
-
-<div class="icon">🛋️</div>
-
-Sala
-
-<div class="status">
-Luces apagadas
-</div>
+<button>🐟 Pecera</button>
+<button>🛋️ Velador</button>
+<button>🛏️ Cama</button>
+<button>💡 Luz</button>
+<button>🌈 LED</button>
+<button>📻 Radio</button>
+<button>📺 Tele</button>
+<button>🎵 Música</button>
 
 </div>
-
-
-
-<div class="button">
-
-<div class="icon">🛏️</div>
-
-Habitación
-
-<div class="status">
-Modo descanso
-</div>
-
-</div>
-
-
-
-<div class="button">
-
-<div class="icon">🐟</div>
-
-Pecera
-
-<div class="status">
-Filtro activo
-</div>
-
-</div>
-
-
-
-<div class="button">
-
-<div class="icon">💻</div>
-
-Escritorio
-
-<div class="status">
-PC apagada
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-
-
-<div class="card">
-
-<h2>Control rápido</h2>
-
-
-<div class="grid">
-
-
-<div class="button">
-
-<div class="icon">💡</div>
-
-Luces
-
-</div>
-
-
-<div class="button">
-
-<div class="icon">🎵</div>
-
-Música
-
-</div>
-
-
-<div class="button">
-
-<div class="icon">🌡️</div>
-
-Clima
-
-</div>
-
-
-<div class="button">
-
-<div class="icon">⚙️</div>
-
-Dispositivos
-
-</div>
-
-
-
-</div>
-
-</div>
-
-
-</div>
-
-
-
 
 <script>
-
-
-function reloj(){
-
-let fecha=new Date();
-
-let h=fecha.getHours().toString().padStart(2,"0");
-
-let m=fecha.getMinutes().toString().padStart(2,"0");
-
-
-document.querySelector(".time").innerHTML=h+":"+m;
-
+function actualizarHora(){
+ let ahora = new Date();
+ document.getElementById("hora").innerHTML =
+ ahora.toLocaleDateString() + "<br>" +
+ ahora.toLocaleTimeString();
 }
 
-
-setInterval(reloj,1000);
-
-reloj();
-
-
-
-let botones=document.querySelectorAll(".button");
-
-
-botones.forEach(boton=>{
-
-
-boton.onclick=function(){
-
-boton.classList.toggle("active");
-
-}
-
-
-});
-
-
+setInterval(actualizarHora,1000);
+actualizarHora();
 </script>
-
-
 
 </body>
 </html>
