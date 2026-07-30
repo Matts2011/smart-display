@@ -26,11 +26,11 @@ actualizarHora();
 // ===== FOTOS =====
 
 const fotos = [
-    "fotos/foto1.jpg",
-    "fotos/foto2.jpg",
-    "fotos/foto3.jpg",
-    "fotos/foto4.jpg",
-    "fotos/foto5.jpg"
+    "Screenshots/foto1.jpg",
+    "Screenshots/foto2.jpg",
+    "Screenshots/foto3.jpg",
+    "Screenshots/foto4.jpg",
+    "Screenshots/foto5.jpg"
 ];
 
 let fotoActual = 0;
