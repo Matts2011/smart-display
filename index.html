@@ -1,123 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Panel</title>
 
-<title>Control</title>
-
-<style>
-
-body{
-margin:0;
-background:#111;
-color:white;
-font-family:Arial;
-text-align:center;
-}
-
-.hora{
-font-size:60px;
-font-weight:bold;
-margin-top:25px;
-}
-
-.fecha{
-font-size:24px;
-margin-bottom:30px;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:15px;
-padding:20px;
-}
-
-button{
-height:100px;
-border:none;
-border-radius:15px;
-background:#222;
-color:white;
-font-size:22px;
-}
-
-.encendido{
-background:#0066ff;
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<div class="hora" id="hora"></div>
-<div class="fecha" id="fecha"></div>
+<div id="app">
 
+<header>
 
-<div class="grid">
+<div id="clock">00:00</div>
 
-<button onclick="control(this,'Pecera')">🐟 Pecera</button>
+<div id="date">Cargando fecha...</div>
 
-<button onclick="control(this,'Velador')">🛋️ Velador</button>
+</header>
 
-<button onclick="control(this,'Cama')">🛏️ Cama</button>
+<main>
 
-<button onclick="control(this,'Luz')">💡 Luz</button>
+<section id="gallery">
 
-<button onclick="control(this,'LED')">🌈 LED</button>
+<img id="photo" src="fotos/foto1.jpg">
 
-<button onclick="control(this,'Radio')">📻 Radio</button>
+<div id="photoCounter"></div>
 
-<button onclick="control(this,'TV')">📺 Tele</button>
+</section>
 
-<button onclick="spotify()">🎵 Música</button>
+<aside id="notes">
+
+<h2>📝 Recordatorios</h2>
+
+<div id="noteInput">
+
+<input
+id="newNote"
+type="text"
+placeholder="Nuevo recordatorio">
+
+<button id="addBtn">
+Agregar
+</button>
 
 </div>
 
+<ul id="noteList">
 
-<script>
+</ul>
 
-function reloj(){
+</aside>
 
-let fecha=new Date();
+</main>
 
-document.getElementById("hora").innerHTML =
-fecha.toLocaleTimeString([],{
-hour:"2-digit",
-minute:"2-digit"
-});
+</div>
 
-document.getElementById("fecha").innerHTML =
-fecha.toLocaleDateString();
-
-}
-
-setInterval(reloj,1000);
-reloj();
-
-
-
-function control(boton,dispositivo){
-
-boton.classList.toggle("encendido");
-
-console.log("Acción:",dispositivo);
-
-}
-
-
-
-function spotify(){
-
-window.open(
-"https://open.spotify.com"
-);
-
-}
-
-</script>
+<script src="script.js"></script>
 
 </body>
+
 </html>
