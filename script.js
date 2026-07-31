@@ -1,10 +1,10 @@
-const fotos = [
+var fotos = [
     "Screenshots/foto1.jpg",
     "Screenshots/foto2.jpg",
     "Screenshots/foto3.jpg"
 ];
 
-let numero = 0;
+const numero = 0;
 const imagen = document.getElementById("fondo");
 
 imagen.src = fotos[0];
@@ -28,7 +28,7 @@ function actualizarHora(){
     var ahora = new Date();
 
     document.getElementById("hora").innerHTML =
-    ahora.toLocaleTimeString("es-ES",{
+    ahora.toLocaconstimeString("es-ES",{
         hour:"2-digit",
         minute:"2-digit",
         hour12:false
@@ -48,9 +48,9 @@ setInterval(actualizarHora,1000);
 
 
 
-let hoy = new Date().toDateString();
+const hoy = new Date().toDateString();
 
-let estado = JSON.parse(localStorage.getItem("estadoRecordatorios")) || {
+const estado = JSON.parse(localStorage.getItem("estadoRecordatorios")) || {
     fecha:hoy,
     peces:false,
     racha:false
@@ -73,7 +73,7 @@ if(estado.fecha !== hoy){
 
 
 
-function completar(nombre){
+function compconstar(nombre){
 
     estado[nombre] = true;
 
@@ -82,7 +82,7 @@ function completar(nombre){
         JSON.stringify(estado)
     );
 
-    let boton = document.querySelector("#"+nombre+" .check");
+    const boton = document.querySelector("#"+nombre+" .check");
 
     boton.innerHTML = "✓";
     boton.style.background = "white";
