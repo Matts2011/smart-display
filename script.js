@@ -7,29 +7,20 @@ const fotos = [
 let numero = 0;
 const imagen = document.getElementById("fondo");
 
-function cambiarFoto(){
+imagen.src = fotos[0];
 
-    imagen.style.opacity = 0;
+setInterval(() => {
 
-    setTimeout(() => {
+    numero++;
 
-        imagen.src = fotos[numero];
+    if(numero >= fotos.length){
+        numero = 0;
+    }
 
-        imagen.onload = () => {
-            imagen.style.opacity = 1;
-        };
+    imagen.src = fotos[numero];
 
-        numero++;
+},14000);
 
-        if(numero >= fotos.length){
-            numero = 0;
-        }
-
-    },1000);
-}
-
-cambiarFoto();
-setInterval(cambiarFoto,14000);
 
 
 function actualizarHora(){
@@ -43,6 +34,7 @@ function actualizarHora(){
         hour12:false
     });
 
+
     document.getElementById("fecha").innerHTML =
     ahora.toLocaleDateString("es-ES",{
         weekday:"long",
@@ -53,3 +45,78 @@ function actualizarHora(){
 
 actualizarHora();
 setInterval(actualizarHora,1000);
+
+
+
+let hoy = new Date().toDateString();
+
+let estado = JSON.parse(localStorage.getItem("estadoRecordatorios")) || {
+    fecha:hoy,
+    peces:false,
+    racha:false
+};
+
+
+if(estado.fecha !== hoy){
+
+    estado = {
+        fecha:hoy,
+        peces:false,
+        racha:false
+    };
+
+    localStorage.setItem(
+        "estadoRecordatorios",
+        JSON.stringify(estado)
+    );
+}
+
+
+
+function completar(nombre){
+
+    estado[nombre] = true;
+
+    localStorage.setItem(
+        "estadoRecordatorios",
+        JSON.stringify(estado)
+    );
+
+    let boton = document.querySelector("#"+nombre+" .check");
+
+    boton.innerHTML = "✓";
+    boton.style.background = "white";
+
+    revisar();
+}
+
+
+
+function cargar(){
+
+    if(estado.peces){
+        document.querySelector("#peces .check").innerHTML="✓";
+        document.querySelector("#peces .check").style.background="white";
+    }
+
+    if(estado.racha){
+        document.querySelector("#racha .check").innerHTML="✓";
+        document.querySelector("#racha .check").style.background="white";
+    }
+
+    revisar();
+}
+
+
+
+function revisar(){
+
+    if(estado.peces && estado.racha){
+
+        document.getElementById("recordatorio").style.display="none";
+
+    }
+}
+
+
+cargar();
