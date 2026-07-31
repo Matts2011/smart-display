@@ -11,15 +11,15 @@ body {
     height: 100%;
     object-fit: cover;
     z-index: -1;
-    transition: opacity 1s ease;
+    transition: opacity 1.5s ease;
 }
 
 #hora {
     position: fixed;
-    bottom: 45px;
+    bottom: 50px;
     left: 40px;
     color: white;
-    font-size: 180px;
+    font-size: 220px;
     font-weight: 300;
     text-shadow: 0 0 20px black;
 }
@@ -29,17 +29,17 @@ body {
     bottom: 25px;
     left: 55px;
     color: white;
-    font-size: 24px;
-    text-shadow: 0 0 10px black;
+    font-size: 30px;
+    text-shadow: 0 0 15px black;
 }
 
 #recordatorio {
     position: fixed;
-    bottom: 35px;
+    bottom: 25px;
     right: 35px;
     background: rgba(0,0,0,0.35);
     color: white;
-    padding: 15px;
+    padding: 15px 20px;
     border-radius: 20px;
     font-size: 18px;
 }
