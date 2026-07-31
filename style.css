@@ -20,11 +20,11 @@ body {
 #hora {
     position: fixed;
     left: 40px;
-    bottom: 70px;
+    bottom: 80px;
     color: white;
-    font-size: 120px;
+    font-size: 250px;
     font-weight: 300;
-    text-shadow: 0 0 15px black;
+    text-shadow: 0 0 20px black;
 }
 
 
