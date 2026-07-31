@@ -1,144 +1,66 @@
-const fotos = [
-    "Screenshots/foto1.jpg",
-    "Screenshots/foto2.jpg",
-    "Screenshots/foto3.jpg"
-];
-
-let numero = 0;
-
-const imagen = document.getElementById("fondo");
-
-imagen.src = fotos[0];
-
-
-setInterval(() => {
-
-    imagen.style.opacity = 0;
-
-    setTimeout(() => {
-
-        numero++;
-
-        if(numero >= fotos.length){
-            numero = 0;
-        }
-
-        imagen.src = fotos[numero];
-
-        imagen.style.opacity = 1;
-
-    },1500);
-
-},14000);
-
-
-
-function actualizarHora(){
-
-    let ahora = new Date();
-
-    document.getElementById("hora").innerHTML =
-    ahora.toLocaleTimeString("es-ES",{
-        hour:"2-digit",
-        minute:"2-digit",
-        hour12:false
-    });
-
-
-    document.getElementById("fecha").innerHTML =
-    ahora.toLocaleDateString("es-ES",{
-        weekday:"long",
-        day:"numeric",
-        month:"long"
-    });
+body {
+    margin: 0;
+    overflow: hidden;
+    background: black;
+    font-family: Arial, sans-serif;
 }
 
-actualizarHora();
-setInterval(actualizarHora,1000);
-
-
-
-
-let hoy = new Date().toDateString();
-
-
-let estado = JSON.parse(localStorage.getItem("estadoRecordatorios")) || {
-    fecha:hoy,
-    peces:false,
-    racha:false
-};
-
-
-
-if(estado.fecha !== hoy){
-
-    estado = {
-        fecha:hoy,
-        peces:false,
-        racha:false
-    };
-
-    localStorage.setItem(
-        "estadoRecordatorios",
-        JSON.stringify(estado)
-    );
+#fondo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    transition: opacity 1.5s ease;
 }
 
 
-
-function completar(nombre){
-
-    estado[nombre] = true;
-
-    localStorage.setItem(
-        "estadoRecordatorios",
-        JSON.stringify(estado)
-    );
-
-
-    let boton = document.querySelector("#"+nombre+" .check");
-
-    boton.innerHTML = "✓";
-    boton.style.background = "white";
-
-
-    revisar();
+#hora {
+    position: fixed;
+    left: 40px;
+    bottom: 70px;
+    color: white;
+    font-size: 120px;
+    font-weight: 300;
+    text-shadow: 0 0 15px black;
 }
 
 
-
-function cargar(){
-
-    if(estado.peces){
-
-        document.querySelector("#peces .check").innerHTML="✓";
-        document.querySelector("#peces .check").style.background="white";
-
-    }
-
-
-    if(estado.racha){
-
-        document.querySelector("#racha .check").innerHTML="✓";
-        document.querySelector("#racha .check").style.background="white";
-
-    }
-
-
-    revisar();
+#fecha {
+    position: fixed;
+    left: 50px;
+    bottom: 35px;
+    color: white;
+    font-size: 26px;
+    text-shadow: 0 0 10px black;
 }
 
 
-
-function revisar(){
-
-    if(estado.peces && estado.racha){
-
-        document.getElementById("recordatorio").style.display="none";
-
-    }
-
+#recordatorio {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    color: white;
+    font-size: 22px;
+    text-shadow: 0 0 10px black;
 }
 
 
-cargar();
+.tarea {
+    width: 250px;
+    margin: 25px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.check {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background: transparent;
+}
