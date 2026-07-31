@@ -1,132 +1,44 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+body {
+    margin: 0;
+    overflow: hidden;
+    background: black;
+    font-family: Arial, sans-serif;
 }
 
-body{
-    background:#0f1117;
-    color:white;
-    overflow:hidden;
+#fondo {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
 }
 
-#app{
-    width:100vw;
-    height:100vh;
-    display:flex;
-    flex-direction:column;
+#hora {
+    position: fixed;
+    bottom: 45px;
+    left: 40px;
+    color: white;
+    font-size: 180px;
+    font-weight: 300;
+    text-shadow: 0 0 20px black;
 }
 
-header{
-    height:120px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    border-bottom:1px solid rgba(255,255,255,.08);
+#fecha {
+    position: fixed;
+    bottom: 25px;
+    left: 55px;
+    color: white;
+    font-size: 14px;
+    text-shadow: 0 0 10px black;
 }
 
-#clock{
-    font-size:70px;
-    font-weight:300;
-}
-
-#date{
-    margin-top:8px;
-    font-size:22px;
-    color:#bdbdbd;
-}
-
-main{
-    flex:1;
-    display:flex;
-}
-
-#gallery{
-    flex:4;
-    position:relative;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:#161a22;
-}
-
-#photo{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-#photoCounter{
-    position:absolute;
-    bottom:20px;
-    right:20px;
-    background:rgba(0,0,0,.5);
-    padding:8px 14px;
-    border-radius:20px;
-    font-size:16px;
-}
-
-#notes{
-    flex:1;
-    background:#1d222d;
-    padding:25px;
-    overflow-y:auto;
-}
-
-#notes h2{
-    margin-bottom:20px;
-    font-size:28px;
-}
-
-#noteInput{
-    display:flex;
-    gap:10px;
-    margin-bottom:20px;
-}
-
-#newNote{
-    flex:1;
-    border:none;
-    border-radius:10px;
-    padding:12px;
-    font-size:16px;
-}
-
-#addBtn{
-    border:none;
-    border-radius:10px;
-    background:#3b82f6;
-    color:white;
-    padding:12px 18px;
-    cursor:pointer;
-}
-
-#addBtn:hover{
-    background:#2563eb;
-}
-
-#noteList{
-    list-style:none;
-}
-
-#noteList li{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background:#2b3242;
-    margin-bottom:10px;
-    padding:12px;
-    border-radius:10px;
-    font-size:17px;
-}
-
-.deleteBtn{
-    background:#ef4444;
-    border:none;
-    color:white;
-    padding:6px 10px;
-    border-radius:8px;
-    cursor:pointer;
+#recordatorio {
+    position: fixed;
+    bottom: 35px;
+    right: 35px;
+    background: rgba(0,0,0,0.35);
+    color: white;
+    padding: 15px;
+    border-radius: 20px;
+    font-size: 18px;
 }
