@@ -1,65 +1,24 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mi Panel</title>
-
+<title>Echo iPad</title>
 <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
-<div id="app">
+<img id="fondo" src="Screenshots/foto1.jpg">
 
-<header>
+<div id="hora">00:00</div>
+<div id="fecha">Fecha</div>
 
-<div id="clock">00:00</div>
-
-<div id="date">Cargando fecha...</div>
-
-</header>
-
-<main>
-
-<section id="gallery">
-
-<img id="photo" src="Screenshots/foto1.jpg">
-
-<div id="photoCounter"></div>
-
-</section>
-
-<aside id="notes">
-
-<h2>📝 Recordatorios</h2>
-
-<div id="noteInput">
-
-<input
-id="newNote"
-type="text"
-placeholder="Nuevo recordatorio">
-
-<button id="addBtn">
-Agregar
-</button>
-
-</div>
-
-<ul id="noteList">
-
-</ul>
-
-</aside>
-
-</main>
-
+<div id="recordatorio">
+📝 Recordatorio<br>
+Revisar tareas
 </div>
 
 <script src="script.js"></script>
 
 </body>
-
 </html>
