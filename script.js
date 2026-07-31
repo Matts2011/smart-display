@@ -25,7 +25,7 @@ setInterval(() => {
 
 function actualizarHora(){
 
-    let ahora = new Date();
+    var ahora = new Date();
 
     document.getElementById("hora").innerHTML =
     ahora.toLocaleTimeString("es-ES",{
