@@ -1,5 +1,24 @@
-function actualizarHora(){
+const fotos = [
+    "Screenshots/foto1.jpg",
+    "Screenshots/foto2.jpg",
+    "Screenshots/foto3.jpg"
+];
 
+let numero = 0;
+
+function cambiarFoto() {
+    numero++;
+
+    if (numero >= fotos.length) {
+        numero = 0;
+    }
+
+    document.getElementById("fondo").src = fotos[numero];
+}
+
+setInterval(cambiarFoto, 10000);
+
+function actualizarHora(){
     let ahora = new Date();
 
     document.getElementById("hora").innerHTML =
