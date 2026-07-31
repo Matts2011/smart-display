@@ -1,7 +1,7 @@
 var fotos = [
-    "Screenshots/foto1.jpg",
-    "Screenshots/foto2.jpg",
-    "Screenshots/foto3.jpg"
+    "./Screenshots/foto1.jpg",
+    "./Screenshots/foto2.jpg",
+    "./Screenshots/foto3.jpg"
 ];
 
 const numero = 0;
